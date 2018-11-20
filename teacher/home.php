@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    if(isset($_SESSION['T_uid']) != '') {
+
+    } else {
+        header('Location: index.html');
+        exit();
+    }
+?>
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -14,6 +23,8 @@
         <title>講師ログイン - SCHOOMA!</title>
 
         <!-- Materializeのインポート -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
             
@@ -23,28 +34,14 @@
         <nav>
             <div class="container">
                 <div class="nav-wrapper">
-                    <a href="index.html" class="brand-logo">SCHOOMA!</a>
+                    <a href="home.php" class="brand-logo">SCHOOMA!</a>
+                    <a href="#" data-target="mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="c-record.php">授業記録</a></li>
+                        <li><a href="s-record.php">生徒の学習記録</a></li>
+                        <li><a href="c-manage.php">授業管理</a></li>
+                        <li><a href="s-manage.php">生徒管理</a></li>
+                    </ul>
                 </div>
             </div>
         </nav>
-        <br><br><br>
-        <div class="container">
-            <div class="row">
-                <div class="col s12">
-                    <h3><b>ログイン</b></h3>
-                </div>
-            </div>
-            <div class"row">
-                <form action="d-login.php" method="POST">
-                    <div class="col s12 m6">
-                        <h5><b>ログインID</b></h5>
-                        <input type="text" name="uid" required>
-                    </div>
-                    <div class="col s12 m6">
-                        <h5><b>パスワード</b></h5>
-                        <input type="password" name="pass" required>
-                        <button type="submit" class="btn"><b>ログインする</b></button>
-                    </div>
-                </form>
-            </div>
-        </div>
