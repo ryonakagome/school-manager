@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <!-- エンコード設定 -->
+        <meta charset="UTF-8" />
+        
+        <!-- Viewport設定 -->
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+
+        <!-- 検索エンジンクローラからの排除 -->
+        <meta name="robots" content="noindex,nofollow" />
+
+        <!-- ページタイトルの設定 -->
+        <title>講師ログイン - SCHOOMA!</title>
+
+        <!-- Materializeのインポート -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            
+    </head>
+    <body>
+        <!-- ナビゲーション -->
+        <nav>
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="index.html" class="brand-logo">SCHOOMA!</a>
+                </div>
+            </div>
+        </nav>
+        <br><br><br>
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <h3><b>ログイン</b></h3>
+                </div>
+            </div>
+            <div class"row">
+                <form action="login.php" method="POST">
+                    <div class="col s12 m6">
+                        <h5><b>ログインID</b></h5>
+                        <input type="text" name="uid" required>
+                    </div>
+                    <div class="col s12 m6">
+                        <h5><b>パスワード</b></h5>
+                        <input type="password" name="pass" required>
+                        <button type="submit" class="btn"><b>ログインする</b></button>
+                    </div>
+                </form>
+            </div>
+        </div>
