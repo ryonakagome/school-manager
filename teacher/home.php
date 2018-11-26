@@ -58,7 +58,7 @@
                         <li><a href="c-manage.php">授業管理</a></li>
                         <li><a href="s-manage.php">生徒管理</a></li>
                         <li><a href="m-manage.php">勤怠・シフト管理</a></li>
-                        <li><a href="u-manage.php">ユーザ管理</a></li>
+                        <li><a href="u-manage.php">講師ユーザ管理</a></li>
                     </ul>
                 </div>
             </div>
