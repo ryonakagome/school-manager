@@ -20,7 +20,7 @@
         <meta name="robots" content="noindex,nofollow" />
 
         <!-- ページタイトルの設定 -->
-        <title>講師ログイン - SCHOOMA!</title>
+        <title>講師ユーザ管理 - SCHOOMA!</title>
 
         <!-- Materializeのインポート -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -66,6 +66,7 @@
         <script>
             $(document).ready(function(){
                 $('.sidenav').sidenav();
+                $('.modal').modal();
             });
         </script>
 
@@ -74,6 +75,8 @@
             <div class="row">
                 <div class="col s12">
                     <h3>講師ユーザ管理</h3>
+                    <a class="waves-effect waves-light btn modal-trigger" href="#modal-register">講師登録</a>
+                    <p>ユーザ情報変更・パスワードを忘れた際は、一旦ユーザーを削除してから、登録し直してください。データは保持されます。</p>
                     <h5>講師リスト</h5>
                     <table>
                         <tr><th>UserID</th><th>UserName</th><th>オプション</th></tr>
@@ -81,11 +84,25 @@
                             require_once('../config/config.php');
                             $sql = mysqli_query($db_link, "SELECT UserID, UserName FROM user_teacher");
                             while($result = mysqli_fetch_assoc($sql)) {
-                                print('<tr><td>'.$result['UserID'].'</td><td>'.$result['UserName'].'</td><td><a href="u-manage-change.php?uid='.$result['UserID'].'" class="btn">ユーザ情報を変更</a></td></tr>');
+                                print('<tr><td>'.$result['UserID'].'</td><td>'.$result['UserName'].'</td><td><a class="btn red" href="u-delete.php?uid='.$result['UserID'].'">削除</a></td></tr>');
                             }
                         ?>
                     </table>
                 </div>
+            </div>
+        </div>
+        <div id="modal-register" class="modal">
+            <div class="modal-content">
+                <h3>講師登録</h3>
+                <form action="u-add.php" method="POST">
+                    <p>ユーザーID</p>
+                    <input type="text" name="uid" placeholder="半角英数字" required>
+                    <p>氏名</p>
+                    <input type="text" name="uname" required>
+                    <p>パスワード</p>
+                    <input type="password" name="pass" required>
+                    <button type="submit" class="btn">登録</button>
+                </form>
             </div>
         </div>
     </body>
